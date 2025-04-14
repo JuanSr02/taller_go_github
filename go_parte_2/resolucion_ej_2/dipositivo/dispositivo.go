@@ -6,52 +6,52 @@ import (
 	"math/rand"
 )
 
-// Dispositivo estructura principal
-type Dispositivo struct {
-	Nombre string
-	Estado bool
+// dispositivo estructura principal
+type dispositivo struct {
+	nombre string
+	estado bool
 }
 
-// New instancia un nuevo Dispositivo
-func New(n string) *Dispositivo {
+// New instancia un nuevo dispositivo
+func New(n string) *dispositivo {
 
 	// genera un entero aleatorio
 	r := rand.Int()
 
-	return &Dispositivo{
-		Nombre: n,
+	return &dispositivo{
+		nombre: n,
 
 		// si es par estará prendido y si es impar apagado
-		Estado: r%2 == 0,
+		estado: r%2 == 0,
 	}
 }
 
-func (d *Dispositivo) Encender() error {
-	if d.Estado {
+func (d *dispositivo) Encender() error {
+	if d.estado {
 		return errors.New("el dispositivo ya está encendido")
 	}
 
-	d.Estado = true
+	d.estado = true
 	return nil
 }
 
-func (d *Dispositivo) Apagar() error {
-	if !d.Estado {
+func (d *dispositivo) Apagar() error {
+	if !d.estado {
 		return errors.New("el dispositivo está apagado")
 	}
 
-	d.Estado = false
+	d.estado = false
 	return nil
 }
 
-func (d *Dispositivo) EstadoActual() string {
-	if d.Estado {
-		color.Green("Dispositivo encendido")
-		return "Dispositivo encendido"
+func (d *dispositivo) EstadoActual() string {
+	if d.estado {
+		color.Green("dispositivo encendido")
+		return "dispositivo encendido"
 	}
 
-	color.Red("Dispositivo apagado")
-	return "Dispositivo apagado"
+	color.Red("dispositivo apagado")
+	return "dispositivo apagado"
 }
 
 // Controlable define el comportamiento de dispositivos.
