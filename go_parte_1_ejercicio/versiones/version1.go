@@ -25,7 +25,11 @@ func Version1() {
 	}
 
 	for key, value := range puntajes {
+		if value==1{
+			fmt.Printf("El valor: %d fue ingresado %d vez\n", key, value)
+			} else {
 		fmt.Printf("El valor: %d fue ingresado %d veces\n", key, value)
+		}
 	}
 
 	sum1_2 := puntajes[1] + puntajes[2]
