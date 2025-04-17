@@ -79,7 +79,7 @@ func main() {
 	manejoErrPuntero(&err)
 	fmt.Println("error -> ", err)
 
-	// con error
+	// sin error
 	s, err := manejaString("hello")
 	if err != nil {
 		fmt.Println("tuve un error llamando a manejaString. error -> ", err)
@@ -87,7 +87,7 @@ func main() {
 		fmt.Println("resultado de manejaString -> ", s)
 	}
 
-	// sin error
+	// con error
 	s, err = manejaString("hello world")
 	if err != nil {
 		fmt.Println("tuve un error llamando a manejaString. error -> ", err)
